@@ -4,12 +4,12 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth
 
 //This is my firebase API configuration
 export const firebaseConfig = {
-  apiKey: "AIzaSyDxry6zjs2NOwm_baJG6YnvNxDOnxTRO8A",
-  authDomain: "campus-library-app.firebaseapp.com",
-  projectId: "campus-library-app",
-  storageBucket: "campus-library-app.firebasestorage.app",
-  messagingSenderId: "122325336564",
-  appId: "1:122325336564:web:315155c14777171c5f39a1"
+  apiKey: "FIREBASE_API_KEY_PLACEHOLDER",
+  authDomain: "FIREBASE_AUTH_DOMAIN_PLACEHOLDER",
+  projectId: "FIREBASE_PROJECT_ID_PLACEHOLDER",
+  storageBucket: "FIREBASE_STORAGE_BUCKET_PLACEHOLDER",
+  messagingSenderId: "FIREBASE_MESSAGING_SENDER_ID_PLACEHOLDER",
+  appId: "FIREBASE_APP_ID_PLACEHOLDER"
 };
 
 // Initialize Firebase
