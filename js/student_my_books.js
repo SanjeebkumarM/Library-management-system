@@ -10,7 +10,7 @@ onAuthStateChanged(auth, async (user) => {
         document.getElementById('IdDisplay').innerText = currentStudentRollNo;
         loadAllTabs();
     } else {
-        window.location.href = "student_login.html";
+        window.location.href = "index.html";
     }
 });
 
@@ -22,7 +22,7 @@ async function loadAllTabs() {
     ]);
 }
 document.getElementById("logoutBtn").addEventListener("click", () => {
-    signOut(auth).then(() => window.location.href = "student_login.html");
+    signOut(auth).then(() => window.location.href = "index.html");
 });
 
 // A helper function to grab book details (The "Client-Side Join")

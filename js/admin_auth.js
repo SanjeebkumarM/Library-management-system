@@ -27,6 +27,6 @@ loginForm.addEventListener("submit", async (e) => {
     errorMessage.classList.remove("d-none");
     
     loginBtn.disabled = false;
-    loginBtn.innerText = "Login (Admin)";
+    loginBtn.innerText = "Login";
   }
 });

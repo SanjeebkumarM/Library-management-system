@@ -7,12 +7,12 @@ onAuthStateChanged(auth, (user) => {
         document.getElementById('adminIdDisplay').innerText = user.email.split('@')[0].toUpperCase();
         loadBooksCatalog();
     } else {
-        window.location.href = "admin_login.html";
+        window.location.href = "index.html";
     }
 });
 
 document.getElementById("logoutBtn").addEventListener("click", () => {
-    signOut(auth).then(() => window.location.href = "admin_login.html");
+    signOut(auth).then(() => window.location.href = "index.html");
 });
 
 

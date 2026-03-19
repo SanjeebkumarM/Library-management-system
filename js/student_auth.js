@@ -30,6 +30,6 @@ loginForm.addEventListener("submit", async (e) => {
     
 
     loginBtn.disabled = false;
-    loginBtn.innerText = "Login (Student)";
+    loginBtn.innerText = "Login";
   }
 });

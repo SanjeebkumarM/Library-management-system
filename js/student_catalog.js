@@ -21,17 +21,12 @@ onAuthStateChanged(auth, async (user) => {
         await loadBooksFromFirestore();
         initCartUI();
     } else {
-        window.location.href = "student_login.html";
+        window.location.href = "index.html";
     }
 });
 
 document.getElementById("logoutBtn").addEventListener("click", () => {
-    signOut(auth).then(() => window.location.href = "student_login.html");
-});
-
-
-document.getElementById("logoutBtn").addEventListener("click", () => {
-    signOut(auth).then(() => window.location.href = "student_login.html");
+    signOut(auth).then(() => window.location.href = "index.html");
 });
 
 //Get books from database

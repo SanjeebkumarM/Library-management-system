@@ -10,12 +10,12 @@ onAuthStateChanged(auth, (user) => {
         currentAdminId = user.email.split('@')[0].toUpperCase();
         document.getElementById('adminIdDisplay').innerText = currentAdminId;
     } else {
-        window.location.href = "admin_login.html";
+        window.location.href = "index.html";
     }
 });
 
 document.getElementById("logoutBtn").addEventListener("click", () => {
-    signOut(auth).then(() => window.location.href = "admin_login.html");
+    signOut(auth).then(() => window.location.href = "index.html");
 });
 
 //DOM Elements

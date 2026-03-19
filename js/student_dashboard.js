@@ -25,7 +25,7 @@ onAuthStateChanged(auth, async (user) => {
     }
   } else {
     // If they aren't logged in, kick them back to the login page
-    window.location.href = "student_login.html";
+    window.location.href = "index.html";
   }
 });
 
@@ -66,7 +66,7 @@ function populateDashboard(data) {
 }
 const handleLogout = () => {
   signOut(auth).then(() => {
-    window.location.href = "student_login.html";
+    window.location.href = "index.html";
   });
 };
 
