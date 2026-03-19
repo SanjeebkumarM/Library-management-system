@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scan & Issue - Admin Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/css/admin_dashboard.css">
+  </head>
+  <body class="bg-light">
+
+  <nav class="navbar navbar-expand-lg bg-dark shadow-sm border-bottom border-body sticky-top" data-bs-theme="dark">
+      <div class="container px-3">
+        <a class="navbar-brand fw-bold" href="admin_dashboard.html"><i class="bi bi-book"></i> Library Management System</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#adminNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="adminNavbar">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link px-3 active text-primary" href="admin_dashboard.html">Scan & Issue</a></li>
+            <li class="nav-item"><a class="nav-link px-3" href="manage_students.html">Manage Students</a></li>
+            <li class="nav-item"><a class="nav-link px-3" href="manage_books.html">Manage Books</a></li>
+          </ul>
+          
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown mt-lg-0 pt-2 pt-lg-0 border-secondary border-lg-0">
+              <button class="btn btn-outline-light dropdown-toggle d-flex align-items-center justify-content-center gap-2 rounded-pill px-3 py-1 w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-person-circle"></i> Admin: <span id="adminIdDisplay">Loading...</span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-2 text-center text-lg-start">
+                <li><button class="dropdown-item text-danger fw-bold" id="logoutBtn"><i class="bi bi-box-arrow-right me-2"></i>Logout</button></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container py-4">
+      <div class="row mb-4 justify-content-center">
+        <div class="col-md-8 text-center">
+        <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+        <div class="card shadow-sm border-0 bg-white">
+            <div class="card-body p-4">
+              <h4 class="mb-3 text-secondary fw-bold">Scan Digital Library Card</h4>
+              
+              <div class="input-group input-group-lg mb-3 mx-auto shadow-sm" style="max-width: 600px;">
+                <span class="input-group-text bg-primary text-white border-primary" id="scan-addon">
+                  <i class="bi bi-upc-scan"></i>
+                </span>
+                <input type="text" id="digitalCardInput" class="form-control scan-bar text-center border-primary" placeholder="Scan or Type Card No..." autofocus autocomplete="off">
+                <button class="btn btn-outline-primary fw-bold" type="button" id="startCameraBtn">
+                <i class="bi bi-camera-fill"></i>
+                </button>
+              </div>
+
+              <div id="cameraContainer" style="display: none;">
+                <div id="reader" class="rounded overflow-hidden border border-primary mx-auto shadow-sm" style="max-width: 500px;"></div>
+                <button class="btn btn-sm btn-danger mt-3 px-4 rounded-pill" id="stopCameraBtn">Cancel</button>
+              </div>
+              
+              <p class="text-muted small mt-2 mb-0" id="scanStatusText">System ready. Scan with USB barcode reader, type manually, or use your device camera.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-2 row g-4" id="resultsSection" style="display: none;"> 
+        <div class="col-md-4">
+          <div class="card shadow-sm border-0 h-100">
+            <div class="card-body text-center mt-3">
+              <img id="studentPhoto" src="https://ui-avatars.com/api/?name=Loading&background=random&size=120" class="rounded-circle student-photo mb-3 shadow-sm">
+              <h4 class="card-title fw-bold" id="studentName">Loading...</h4>
+              <p class="text-muted mb-1" id="studentRollNo">---</p>
+              <p class="badge bg-secondary mb-3" id="studentBranch">---</p>
+              
+              <ul class="list-group list-group-flush text-start mt-3 border-top pt-3">
+                <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0">
+                  Account Status
+                  <span class="badge bg-success rounded-pill" id="accountStatus">Clear</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0">
+                  Overdue Books
+                  <span class="badge bg-danger rounded-pill" id="overdueCount">0</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="card shadow-sm border-0 h-100 flex-column d-flex">
+            <div class="card-header bg-white border-bottom pb-3 pt-3">
+              <h5 class="mb-0 fw-bold">Requested Books (Pending)</h5>
+            </div>
+            
+            <div class="card-body p-0 table-responsive flex-grow-1">
+              <table class="table table-hover align-middle mb-0 mobile-card-table">
+                <thead class="table-light">
+                  <tr>
+                    <th scope="col" class="ps-4" style="width: 5%;">Issue</th>
+                    <th scope="col" style="width: 20%;">Book No</th>
+                    <th scope="col" style="width: 50%;">Title</th>
+                    <th scope="col" style="width: 25%;">Status</th>
+                  </tr>
+                </thead>
+                <tbody id="requestTableBody">
+                  </tbody>
+              </table>
+            </div>
+            
+            <div class="card-footer bg-white border-top p-3">
+              <div class="d-flex flex-column flex-lg-row justify-content-between align-items-center gap-3">
+                <span class="text-muted small text-center text-lg-start">Check the boxes for physical books available.</span>
+                <div class="d-flex flex-column flex-sm-row gap-2 w-100" style="max-width: 400px;">
+                  <button class="btn btn-outline-danger w-100" id="clearBtn">Clear Session</button>
+                  <button class="btn btn-success px-4 fw-bold w-100" id="issueBtn">Issue Selected</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script type="module" src="js/admin_scan.js"></script>
+  </body>
+</html>
