@@ -11,7 +11,7 @@ Digital Library Management System, where students can digitally browse campus li
 
 # Dependencies:
 1. Bootstrap 5 (Front-End UI)
-2. Sweetfire (Replaces browser Default popup warning messages)
+2. Sweetalert2 (Replaces javascript default popup boxes)
 3. Mailjet/MailJS API (Email Delivery)
 4. QR generation API (Generates QR code for Digital Library Card)
 
