@@ -1,0 +1,54 @@
+      .scan-bar {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+      }
+      .student-photo {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+      }
+      @media (max-width: 576px) {
+        .scan-bar {
+          font-size: 1.1rem;
+          letter-spacing: 1px;
+        }
+      }
+      @media (max-width: 767.98px) {
+        .mobile-card-table thead {
+          display: none;
+        }
+        .mobile-card-table tbody tr {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          padding: 12px 0;
+          border-bottom: 1px solid #dee2e6;
+        }
+        .mobile-card-table tbody td {
+          border: none;
+          padding: 4px 8px;
+        }
+        .mobile-card-table tbody td:nth-child(1) {
+          width: 15%;
+          text-align: center;
+          padding-left: 0 !important;
+        }
+        .mobile-card-table tbody td:nth-child(3) {
+          width: 85%;
+          font-weight: bold;
+          font-size: 1rem;
+          order: 2;
+        }
+        .mobile-card-table tbody td:nth-child(2) {
+          width: 50%;
+          margin-left: 15%;
+          font-size: 0.8rem;
+          color: #6c757d;
+          order: 3;
+        }
+        .mobile-card-table tbody td:nth-child(4) {
+          width: 35%;
+          text-align: right;
+          order: 4;
+        }
+      }

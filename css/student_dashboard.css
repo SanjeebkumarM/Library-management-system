@@ -1,0 +1,6 @@
+body { background-color: #f4f7f6; }
+      .qr-box { background: #fff; border: 4px solid #0d6efd; border-radius: 20px; padding: 15px; display: inline-block; }
+      .action-card { transition: transform 0.2s ease-in-out; }
+      .action-card:hover { transform: translateY(-5px); }
+      .mobile-app-container { background-color: #f8f9fa; min-height: 100vh; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
+      .mobile-header { border-bottom-left-radius: 30px; border-bottom-right-radius: 30px; }

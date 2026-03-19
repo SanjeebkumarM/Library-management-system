@@ -1,0 +1,9 @@
+body { background-color: #f4f7f6; }
+      .list-cover { 
+        width: 100%; 
+        object-fit: cover; 
+        aspect-ratio: 2 / 3;
+      }
+      .img-wrapper { width: 100px; flex-shrink: 0; }
+      .nav-pills .nav-link { border-radius: 50px; color: #6c757d; font-weight: 600; padding: 0.5rem 1.5rem; margin-right: 0.5rem; margin-bottom: 0.5rem;}
+      .nav-pills .nav-link.active { background-color: #0d6efd; color: white; box-shadow: 0 4px 6px rgba(13, 110, 253, 0.2); }

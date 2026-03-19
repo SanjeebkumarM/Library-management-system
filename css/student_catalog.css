@@ -1,0 +1,26 @@
+ body { background-color: #f4f7f6; }
+      .book-card { transition: transform 0.2s; border-radius: 12px; overflow: hidden; }
+      .book-card:hover { transform: translateY(-5px); box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important; }
+      .category-scroll {
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 10px;
+        -webkit-overflow-scrolling: touch;
+      }
+      .category-scroll::-webkit-scrollbar { display: none; }
+      .book-cover { 
+        aspect-ratio: 2 / 3; 
+        width: 100%;
+        object-fit: cover; 
+        background-color: #e9ecef;
+        border-bottom: 1px solid #eee; 
+      }
+      .book-title { font-size: 0.9rem; line-height: 1.2; }
+      .branch-badge { font-size: 0.65rem; padding: 0.3em 0.5em; }
+
+      .mini-book-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 1rem;
+      }
