@@ -1,1 +1,30 @@
+name: Deploy to Firebase Hosting
+on:
+  push:
+    branches:
+      - main # This triggers the workflow every time you push to the main branch
 
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      
+      # 1. Inject API Keys from GitHub Secrets
+      - name: Inject API Keys into firebase-config.js
+        run: |
+          sed -i "s/FIREBASE_API_KEY_PLACEHOLDER/${{ secrets.FIREBASE_API_KEY }}/g" js/firebase-config.js
+          sed -i "s/FIREBASE_AUTH_DOMAIN_PLACEHOLDER/${{ secrets.FIREBASE_AUTH_DOMAIN }}/g" js/firebase-config.js
+          sed -i "s/FIREBASE_PROJECT_ID_PLACEHOLDER/${{ secrets.FIREBASE_PROJECT_ID }}/g" js/firebase-config.js
+          sed -i "s/FIREBASE_STORAGE_BUCKET_PLACEHOLDER/${{ secrets.FIREBASE_STORAGE_BUCKET }}/g" js/firebase-config.js
+          sed -i "s/FIREBASE_MESSAGING_SENDER_ID_PLACEHOLDER/${{ secrets.MESSAGING_SENDER_ID }}/g" js/firebase-config.js
+          sed -i "s/FIREBASE_APP_ID_PLACEHOLDER/${{ secrets.FIREBASE_APP_ID }}/g" js/firebase-config.js
+
+      # 2. Deploy to Firebase
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
