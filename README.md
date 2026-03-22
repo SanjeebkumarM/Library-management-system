@@ -1,4 +1,4 @@
-# Campus Digital Library System 📚
+# Campus Digital Library System
 
 A comprehensive Digital Library Management System that allows students to digitally browse the campus catalog, request physical books, and manage their borrowing history, while providing librarians with a robust suite of management tools.
 
@@ -8,7 +8,7 @@ A comprehensive Digital Library Management System that allows students to digita
 
 ---
 
-## 💻 Tech Stack & Dependencies
+## Tech Stack & Dependencies
 
 **Core Languages:** HTML5, CSS3, Vanilla JavaScript
 **Backend & Database:** Google Firebase Authentication & Cloud Firestore (NoSQL)
@@ -21,9 +21,9 @@ A comprehensive Digital Library Management System that allows students to digita
 
 ---
 
-## ✨ System Features
+## System Features
 
-### 🛡️ Admin Panel (Librarian Dashboard)
+### Admin Panel (Librarian Dashboard)
 * **Request Processing:** Scan student QR codes to view pending book requests, issue selected physical books, or cancel requests.
 * **Student Directory:** View all registered students and access detailed borrowing histories. Check active, overdue, or returned statuses.
 * **Overdue Management:** One-click alert buttons to notify students about overdue books. Filter students by status (Active, Overdue, Clear).
@@ -31,7 +31,7 @@ A comprehensive Digital Library Management System that allows students to digita
 
 
 
-### 🎓 Student Panel
+### Student Panel
 * **Student Dashboard:** Displays the student's auto-generated Digital Library Card (QR Code) and global library announcements.
 * **Interactive Catalog:** Books are displayed as interactive cards in a grid layout. Features a complete Cart System allowing students to queue multiple books before submitting a final request.
 * **My Books Hub:** A tabbed interface allowing students to track currently borrowed books, view/cancel pending requests, and access their complete return history.
@@ -40,7 +40,7 @@ A comprehensive Digital Library Management System that allows students to digita
 
 ---
 
-## ⚙️ Automated System Logic & Architecture
+## Automated System Logic & Architecture
 
 Behind the scenes, the application utilizes several advanced logical flows to maintain library rules and optimize the database:
 
@@ -51,7 +51,7 @@ Behind the scenes, the application utilizes several advanced logical flows to ma
 
 ---
 
-## 🗄️ Database Architecture (Cloud Firestore)
+## Database Architecture (Cloud Firestore)
 
 The application utilizes a NoSQL document structure:
 * `students/`: Documents are keyed by Roll Number to prevent duplicates. Stores demographic data, real contact emails, and digital card numbers.
@@ -59,5 +59,5 @@ The application utilizes a NoSQL document structure:
 
 ---
 
-## 📄 License
+## License
 This project is for educational and demonstration purposes.
